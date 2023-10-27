@@ -1,6 +1,6 @@
 import { Genre } from './types/enums/genres';
 import { Nationality } from './types/enums/nationalities';
-import { Film } from './types/types';
+import { Film } from './types/film';
 
 export const initialFilms: Film[] = [
   {
@@ -11,7 +11,7 @@ export const initialFilms: Film[] = [
     directors: [
       {
         name: 'Martin Scorsese',
-        dateOfBirth: new Date(1942, 10, 16),
+        dateOfBirth: '17/11/1942',
         nationality: Nationality.American,
         notableFilmography: ['Taxi Driver', 'Raging Bull', 'Shutter Island'],
       },
@@ -19,19 +19,19 @@ export const initialFilms: Film[] = [
     notableActors: [
       {
         name: 'Ray Liotta',
-        dateOfBirth: new Date(1954, 11, 17),
+        dateOfBirth: '18/12/1954',
         nationality: Nationality.American,
         characterName: 'Henry Hill',
       },
       {
         name: 'Robert De Niro',
-        dateOfBirth: new Date(1943, 7, 16),
+        dateOfBirth: '17/08/1943',
         nationality: Nationality.American,
         characterName: 'James Conway',
       },
       {
         name: 'Joe Pesci',
-        dateOfBirth: new Date(1943, 1, 8),
+        dateOfBirth: '09/02/1943',
         nationality: Nationality.American,
         characterName: 'Tommy DeVito',
       },
@@ -51,7 +51,7 @@ export const initialFilms: Film[] = [
     directors: [
       {
         name: 'Brad Bird',
-        dateOfBirth: new Date(1957, 8, 14),
+        dateOfBirth: '15/09/1957',
         nationality: Nationality.American,
         notableFilmography: ['Ratatouille', 'The Iron Giant', 'Incredibles 2'],
       },
@@ -59,19 +59,19 @@ export const initialFilms: Film[] = [
     notableActors: [
       {
         name: 'Craig T. Nelson',
-        dateOfBirth: new Date(1944, 3, 3),
+        dateOfBirth: '04/04/1944',
         nationality: Nationality.American,
         characterName: 'Bob Parr / Mr. Incredible',
       },
       {
         name: 'Holly Hunter',
-        dateOfBirth: new Date(1958, 2, 19),
+        dateOfBirth: '20/03/1958',
         nationality: Nationality.American,
         characterName: 'Helen Parr / Elastigirl',
       },
       {
         name: 'Sarah Vowell',
-        dateOfBirth: new Date(1969, 11, 26),
+        dateOfBirth: '27/12/1969',
         nationality: Nationality.American,
         characterName: 'Violet Parr',
       },
@@ -91,7 +91,7 @@ export const initialFilms: Film[] = [
     directors: [
       {
         name: 'Stanley Kubrick',
-        dateOfBirth: new Date(1928, 6, 25),
+        dateOfBirth: '26/07/1928',
         nationality: Nationality.American,
         notableFilmography: [
           '2001: A Space Odyssey',
@@ -103,19 +103,19 @@ export const initialFilms: Film[] = [
     notableActors: [
       {
         name: 'Jack Nicholson',
-        dateOfBirth: new Date(1937, 3, 21),
+        dateOfBirth: '22/04/1937',
         nationality: Nationality.American,
         characterName: 'Jack Torrance',
       },
       {
         name: 'Shelley Duvall',
-        dateOfBirth: new Date(1949, 6, 6),
+        dateOfBirth: '07/07/1949',
         nationality: Nationality.American,
         characterName: 'Wendy Torrance',
       },
       {
         name: 'Danny Lloyd',
-        dateOfBirth: new Date(1973, 0, 10),
+        dateOfBirth: '11/01/1973',
         nationality: Nationality.American,
         characterName: 'Danny Torrance',
       },

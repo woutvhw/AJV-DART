@@ -3,24 +3,24 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
-import { Film } from './types/film';
-import { initialFilms } from './initialFilms';
 import { filmSchema } from './schemas/filmSchema';
+import { initialFilms } from './initialFilms';
+import { Film } from './types/film';
+dotenv.config();
 
 const app: Express = express();
-dotenv.config();
 app.use(cors());
 app.use(express.json());
 
-const ajv = new Ajv({ allErrors: true, strictTuples: false });
+const ajv = new Ajv({ allErrors: true });
 addFormats(ajv);
 const validate = ajv.compile(filmSchema);
-const films: Film[] = initialFilms;
+let films: Film[] = initialFilms;
 
 // API endpoints
 
 app.get('/films', (request, response) => {
-  response.json(initialFilms);
+  return response.json(initialFilms);
 });
 
 app.post('/films', (request, response) => {
