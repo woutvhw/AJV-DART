@@ -9,16 +9,50 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Filmpjes',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Filmpjes'),
+      home: MovieOverview(),
+    );
+  }
+}
+
+class MovieOverview extends StatelessWidget {
+  const MovieOverview({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Movie Overview'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Add a movie'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MovieAdd()),
+            );
+          },
         ),
-        body: GridView.count(
-          crossAxisCount: 2,
-          //TODO lijst ophalen van backend
-          children: List.generate(20, (index) {
-            return movieCard;
-          }),
+      ),
+    );
+  }
+}
+
+class MovieAdd extends StatelessWidget {
+  const MovieAdd({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Add a movie'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
         ),
       ),
     );
