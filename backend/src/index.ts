@@ -25,7 +25,7 @@ app.get('/films', (request, response) => {
 
 app.post('/films', (request, response) => {
   const valid = validate(request.body);
-  if (!valid) return response.status(404).json(validate.errors);
+  if (!valid) return response.status(400).json(validate.errors);
 
   films.push(request.body);
   return response.status(201).end();
