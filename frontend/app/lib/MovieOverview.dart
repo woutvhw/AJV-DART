@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'MovieAdd.dart';
 
+Color color = Colors.green;
+
 class MovieOverview extends StatelessWidget {
   const MovieOverview({super.key});
 
@@ -21,7 +23,7 @@ class MovieOverview extends StatelessWidget {
       body: GridView.count(
         crossAxisCount: 2,
         //TODO lijst ophalen van backend
-        children: List.generate(20, (index) {
+        children: List.generate(3, (index) {
           return movieCard;
         }),
       ),
@@ -31,16 +33,18 @@ class MovieOverview extends StatelessWidget {
 
 Widget movieCard = Column(
   children: [
-    Image.asset(
-      'images/lake.jpg',
-      width: 600,
-      height: 240,
-      fit: BoxFit.cover,
-    ),
+    pictureSection,
     titleSection,
-    buttonSection,
+    dataSection,
     textSection,
   ],
+);
+
+Image pictureSection = Image.asset(
+  'images/incredibles.jpeg',
+  width: 600,
+  height: 240,
+  fit: BoxFit.cover,
 );
 
 Widget titleSection = Container(
@@ -57,23 +61,13 @@ Widget titleSection = Container(
                 'The incredibles',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
+                  fontSize: 23,
                 ),
-              ),
-            ),
-            Text(
-              'Bradbird',
-              style: TextStyle(
-                color: Colors.grey[500],
               ),
             ),
           ],
         ),
       ),
-      Icon(
-        Icons.star,
-        color: Colors.red[500],
-      ),
-      const Text('5'),
     ],
   ),
 );
@@ -99,26 +93,47 @@ Column _buildButtonColumn(Color color, IconData icon, String label) {
   );
 }
 
-Color color = Colors.green;
-
-Widget buttonSection = Row(
+Widget dataSection = Row(
   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
   children: [
-    _buildButtonColumn(color, Icons.call, 'CALL'),
-    _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-    _buildButtonColumn(color, Icons.share, 'SHARE'),
+    const Text('115 min.'),
+    const Text('2004'),
+    RichText(
+      text: TextSpan(
+        children: [
+          const TextSpan(text: '4,5'),
+          WidgetSpan(
+            child: Icon(
+              Icons.star,
+              size: 18,
+              color: Colors.red[500],
+            ),
+          ),
+        ],
+      ),
+    )
   ],
 );
 
 Widget textSection = Container(
-  padding: const EdgeInsets.all(32),
-  child: const Text(
-    'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
-    'Alps. Situated 1,578 meters above sea level, it is one of the '
-    'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
-    'half-hour walk through pastures and pine forest, leads you to the '
-    'lake, which warms to 20 degrees Celsius in the summer. Activities '
-    'enjoyed here include rowing, and riding the summer toboggan run.',
-    softWrap: true,
-  ),
-);
+    padding: const EdgeInsets.all(32),
+    child: Column(
+      children: [
+        const Text(
+          'While trying to lead a quiet suburban life, a family of undercover superheroes are forced into action to save the world.',
+          softWrap: true,
+        ),
+        Text(
+          'Starring: Craig T. Nelson, Holly Hunter and Sarah Vowell',
+          style: TextStyle(
+            color: Colors.grey[500],
+          ),
+        ),
+        Text(
+          'Director: Brad Bird',
+          style: TextStyle(
+            color: Colors.grey[500],
+          ),
+        ),
+      ],
+    ));
